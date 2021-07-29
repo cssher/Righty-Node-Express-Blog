@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/index.css" />
+    <title>About</title>
+  </head>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="about-parent-wrapper">
+      <div class="about-child-wrapper">
+        <h2>
+          <span>WRITE</span> down the <span>RIGHT</span> things - Blogs, Ideas,
+          Notes and more.
+        </h2>
+        <img src="/Typewriter.png" alt="" width="20%" />
+        <article class="about-article">
+          Righty is a basic blog cum notes taker cum sribbler web app. It is
+          built using <span>NodeJS</span> with <span>ExpressJS</span> framework
+          supported on <span>MongoDB</span> backend (free version) and
+          <span>Embedded JavaScript(EJS)</span> for frontend templating.
+        </article>
+      </div>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>

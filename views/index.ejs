@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/index.css" />
+    <title>Home</title>
+  </head>
+  <body>
+    <div class="wrapper">
+
+    <%- include("./partials/nav.ejs") %>
+    <div class="list-wrapper">
+      <div class="list-container">
+        <% if (blogs.length > 0) {%> <% blogs.forEach(blog => {%>
+  
+        <div id="<%= blog._id%>" class="show-div" style="transition: opacity 1s">
+          <h3 class="head-title"><%= blog.title %></h3>
+  
+          <button class="read-btn"><a href="/blog/<%= blog._id %>">Read</a></button>
+          <button
+            class="delete-btn"
+            id="<%= blog._id %>"
+            onclick="deleteBlog('<%= blog._id%>')"
+          >
+            Delete
+          </button>
+        </div>
+  
+        <% })%>
+      </div>
+    </div>
+    <% } else {%>
+    <div class="no-note-div">
+      <h3 class="no-note-title">Nothing written yet...</h3>
+      <img class="no-note-img" src="/Notebook.png" alt="" width="30%" />
+    </div>
+
+    <% }%> <%- include("./partials/footer.ejs") %>
+
+    </div>
+
+    <script>
+      let deleteBlog = (blogId) => {
+        let endPoint = `/blog/${blogId}`;
+        fetch(endPoint, {
+          method: "DELETE",
+        })
+          .then((response) => {
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            if (data.id) {
+              const blogDiv = document.getElementById(`${data.id}`);
+              blogDiv.style.opacity = "0";
+              blogDiv.addEventListener("transitionend", () => blogDiv.remove());
+            }
+          })
+          .catch((err) => console.log(err.message));
+      };
+    </script>
+  </body>
+</html>

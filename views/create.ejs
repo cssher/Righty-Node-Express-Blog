@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/index.css" />
+    <title>Write</title>
+  </head>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+
+    <div class="write-wrapper-parent">
+      <div class="write-wrapper-child">
+        <h1>Write whatever you want to !</h1>
+
+        <div class="form-div">
+          <form action="/home" method="POST">
+            <input
+              type="text"
+              name="title"
+              id=""
+              placeholder="enter title"
+              required
+            />
+            <textarea
+              name="body"
+              id=""
+              placeholder="write all whatever you like"
+              required
+              cols="100"
+              rows="10"
+            ></textarea>
+            <button type="submit" class="write-btn">Create</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <%- include("./partials/footer.ejs") %>
+  </body>
+</html>

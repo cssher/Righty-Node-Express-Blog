@@ -1,6 +1,6 @@
 # Righty-Node-Express-Blog
 
-A basic blog web app built using :
+A basic blogging web app built using :
 
  - NodeJS
  - Express
